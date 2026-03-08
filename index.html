@@ -346,6 +346,32 @@ padding:15px;
     60%{transform: scale(1.2);}
     100%{transform: scale(1);}
 }
+    .play-amor{
+    text-align:center;
+    margin-top:20px;
+}
+
+#btnAmor{
+    font-size:22px;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:#ff4d6d;
+    color:white;
+    cursor:pointer;
+    animation:latido 1.5s infinite;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+#btnAmor:hover{
+    background:#ff1e4d;
+}
+
+@keyframes latido{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.15);}
+    100%{transform:scale(1);}
+}
 
 </style>
 </head>
@@ -360,6 +386,12 @@ padding:15px;
 
 <h1 class="titulo-romantico">💖 Feliz Día de la Mujer 💖</h1>
 <p>Para la mujer más maravillosa de mi vida</p>
+    <div class="play-amor">
+  <button id="btnAmor">❤️ Play Amor</button>
+  <audio id="audioAmor" loop>
+    <source src="./audio/Jesse y Joy - Eres Mi Sol (Official Video) 2024 Estreno.mp3" type="audio/mpeg">
+  </audio>
+</div>
 
 <div class="galeria">
 
@@ -488,16 +520,16 @@ sorpresa.style.display="none";
 },5000);
 
 }
-let musica = document.getElementById("musica");
-let boton = document.getElementById("btnAudio");
+let audio = document.getElementById("audioAmor");
+let boton = document.getElementById("btnAmor");
 
 boton.addEventListener("click", function(){
-    if(musica.paused){
-        musica.play();
-        boton.innerHTML="💖";
+    if(audio.paused){
+        audio.play();
+        boton.innerHTML="💖 Sonando Amor";
     }else{
-        musica.pause();
-        boton.innerHTML="❤️";
+        audio.pause();
+        boton.innerHTML="❤️ Play Amor";
     }
 });
 </script>
@@ -505,6 +537,7 @@ boton.addEventListener("click", function(){
 </body>
 
 </html>
+
 
 
 
