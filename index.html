@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Día de la Mujer</title>
+
+<style>
+
+body{
+margin:0;
+font-family:'Georgia',serif;
+text-align:center;
+background:linear-gradient(270deg,#ff758c,#ff7eb3,#ffb199);
+background-size:600% 600%;
+animation:fondoAnimado 12s ease infinite;
+overflow-x:hidden;
+}
+
+@keyframes fondoAnimado{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* TITULO */
+
+h1{
+margin-top:70px;
+color:white;
+font-size:80px;
+letter-spacing:4px;
+text-shadow:4px 4px 20px rgba(0,0,0,0.4);
+}
+
+.titulo-romantico{
+margin-top:70px;
+color:white;
+font-size:90px;
+letter-spacing:5px;
+text-shadow:0 0 10px #fff,
+0 0 20px #ff4da6,
+0 0 40px #ff1a75;
+animation:latidoTitulo 2s infinite, brilloTitulo 4s infinite alternate;
+}
+
+/* efecto latido */
+
+@keyframes latidoTitulo{
+0%{
+transform:scale(1);
+}
+50%{
+transform:scale(1.05);
+}
+100%{
+transform:scale(1);
+}
+}
+
+/* efecto brillo */
+
+@keyframes brilloTitulo{
+0%{
+text-shadow:
+0 0 10px #fff,
+0 0 20px #ff4da6,
+0 0 40px #ff1a75;
+}
+
+100%{
+text-shadow:
+0 0 20px #fff,
+0 0 40px #ff66b3,
+0 0 60px #ff1a75;
+}
+} 
+p{
+color:white;
+font-size:30px;
+margin-top:-10px;
+}
+
+/* GALERIA */
+
+.galeria{
+display:grid;
+grid-template-columns:repeat(2,500px);
+justify-content:center;
+gap:70px;
+margin-top:80px;
+}
+
+/* FOTO */
+
+.foto{
+position:relative;
+width:500px;
+height:500px;
+}
+
+.foto img{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:20px;
+transition:0.4s;
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* CORAZON */
+
+.foto::before{
+content:"❤️";
+font-size:180px;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) scale(0);
+opacity:0;
+transition:0.4s;
+pointer-events:none;
+}
+
+.foto:hover img{
+transform:scale(1.08);
+border:6px solid #ff3366;
+}
+
+.foto:hover::before{
+transform:translate(-50%,-50%) scale(1);
+opacity:0.8;
+}
+
+/* BOTON */
+
+button{
+margin-top:70px;
+padding:18px 40px;
+font-size:24px;
+background:#ff3366;
+color:white;
+border:none;
+border-radius:18px;
+cursor:pointer;
+box-shadow:0 6px 20px rgba(0,0,0,0.3);
+}
+
+button:hover{
+background:#ff1744;
+}
+
+/* MENSAJE */
+
+#mensaje{
+display:none;
+margin-top:40px;
+color:white;
+font-size:32px;
+max-width:900px;
+margin-left:auto;
+margin-right:auto;
+line-height:1.6;
+}
+
+/* CORAZONES */
+
+.corazon{
+position:fixed;
+top:100%;
+color:#ff3366;
+font-size:25px;
+animation:subir 8s linear infinite;
+}
+
+@keyframes subir{
+0%{
+transform:translateY(0);
+opacity:1;
+}
+100%{
+transform:translateY(-1200px);
+opacity:0;
+}
+}
+
+/* ROSAS */
+
+.rosa{
+position:fixed;
+top:-50px;
+font-size:28px;
+animation:caer 10s linear infinite;
+}
+
+@keyframes caer{
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:1;
+}
+100%{
+transform:translateY(1200px) rotate(360deg);
+opacity:0;
+}
+}
+
+#sorpresa{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.85);
+display:none;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:999;
+animation:aparecer 2s;
+}
+
+#sorpresa img{
+width:450px;
+height:450px;
+object-fit:cover;
+border-radius:25px;
+box-shadow:0 0 40px #ff3366;
+animation:latido 2s infinite;
+}
+
+#sorpresa h2{
+color:white;
+font-size:35px;
+max-width:800px;
+margin-top:40px;
+line-height:1.5;
+animation:brillar 3s infinite;
+}
+
+@keyframes aparecer{
+from{opacity:0}
+to{opacity:1}
+}
+
+@keyframes latido{
+0%{transform:scale(1)}
+50%{transform:scale(1.08)}
+100%{transform:scale(1)}
+}
+
+@keyframes brillar{
+0%{opacity:0.7}
+50%{opacity:1}
+100%{opacity:0.7}
+}
+/* RESPONSIVE */
+
+@media (max-width:1200px){
+
+.galeria{
+grid-template-columns:repeat(1,450px);
+}
+
+.foto{
+width:450px;
+height:450px;
+}
+
+}
+
+@media (max-width:768px){
+
+.titulo-romantico{
+font-size:50px;
+padding:10px;
+}
+
+p{
+font-size:22px;
+}
+
+.galeria{
+grid-template-columns:1fr;
+gap:40px;
+padding:20px;
+}
+
+.foto{
+width:90%;
+height:350px;
+margin:auto;
+}
+
+#sorpresa img{
+width:300px;
+height:300px;
+}
+
+#sorpresa h2{
+font-size:22px;
+padding:20px;
+}
+
+button{
+font-size:18px;
+padding:15px 25px;
+}
+
+}
+
+@media (max-width:480px){
+
+.titulo-romantico{
+font-size:38px;
+}
+
+.foto{
+height:280px;
+}
+
+#mensaje{
+font-size:20px;
+padding:15px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+    <audio autoplay loop>
+<source src="./audio/Jesse y Joy - Eres Mi Sol (Official Video) 2024 Estreno.mp3" type="audio/mpeg">
+</audio>
+
+<h1 class="titulo-romantico">💖 Feliz Día de la Mujer 💖</h1>
+<p>Para la mujer más maravillosa de mi vida</p>
+
+<div class="galeria">
+
+<div class="foto"><img src="./imagenes/foto1.jfif"></div>
+<div class="foto"><img src="./imagenes/foto2.jfif"></div>
+<div class="foto"><img src="./imagenes/foto3.jfif"></div>
+<div class="foto"><img src="./imagenes/foto4.jfif"></div>
+<!-- <div class="foto"><img src="./imagenes/foto5.jfif"></div> -->
+<div class="foto"><img src="./imagenes/foto6.jfif"></div>
+<div class="foto"><img src="./imagenes/foto7.jfif"></div>
+<div class="foto"><img src="./imagenes/foto8.jfif"></div>
+<div class="foto"><img src="./imagenes/foto9.jfif"></div>
+<div class="foto"><img src="./imagenes/foto10.jfif"></div>
+<div class="foto"><img src="./imagenes/foto11.jfif"></div>
+<div class="foto"><img src="./imagenes/foto12.jfif"></div>
+<div class="foto"><img src="./imagenes/foto13.jfif"></div>
+<div class="foto"><img src="./imagenes/foto14.jfif"></div>
+<div class="foto"><img src="./imagenes/foto15.jfif"></div>
+<div class="foto"><img src="./imagenes/foto16.jfif"></div>
+<div class="foto"><img src="./imagenes/foto17.jfif"></div>
+<div class="foto"><img src="./imagenes/foto18.jfif"></div>
+<div class="foto"><img src="./imagenes/foto19.jfif"></div>
+<div class="foto"><img src="./imagenes/foto20.jfif"></div>
+<div class="foto"><img src="./imagenes/foto21.jfif"></div>
+<div class="foto"><img src="./imagenes/foto22.jfif"></div>
+<div class="foto"><img src="./imagenes/foto23.jfif"></div>
+<div class="foto"><img src="./imagenes/foto24.jfif"></div>
+<div class="foto"><img src="./imagenes/foto25.jfif"></div>
+<div class="foto"><img src="./imagenes/foto26.jfif"></div>
+<div class="foto"><img src="./imagenes/foto27.jfif"></div>
+<div class="foto"><img src="./imagenes/foto28.jfif"></div>
+<div class="foto"><img src="./imagenes/foto29.jfif"></div>
+<div class="foto"><img src="./imagenes/foto30.jpg"></div>
+<div class="foto"><img src="./imagenes/foto31.jfif"></div>
+<div class="foto"><img src="./imagenes/foto32.jfif"></div>
+<div class="foto"><img src="./imagenes/foto33.jfif"></div>
+<div class="foto"><img src="./imagenes/foto34.jfif"></div>
+<div class="foto"><img src="./imagenes/foto35.jfif"></div>
+<div class="foto"><img src="./imagenes/foto36.jfif"></div>
+<div class="foto"><img src="./imagenes/foto37.jfif"></div>
+<div class="foto"><img src="./imagenes/foto38.jfif"></div>
+<div class="foto"><img src="./imagenes/foto39.jfif"></div>
+<div class="foto"><img src="./imagenes/foto40.jfif"></div>
+<div class="foto"><img src="./imagenes/foto41.jfif"></div>
+<!-- <div class="foto"><img src="./imagenes/foto42.jfif"></div>
+<div class="foto"><img src="./imagenes/foto43.jfif"></div>
+<div class="foto"><img src="./imagenes/foto3.jfif"></div>
+<div class="foto"><img src="./imagenes/foto3.jfif"></div>
+<div class="foto"><img src="./imagenes/foto3.jfif"></div>
+<div class="foto"><img src="./imagenes/foto3.jfif"></div>
+<div class="foto"><img src="./imagenes/foto3.jfif"></div>
+<div class="foto"><img src="./imagenes/foto3.jfif"></div>
+<div class="foto"><img src="./imagenes/foto3.jfif"></div>
+<div class="foto"><img src="./imagenes/foto3.jfif"></div>
+<div class="foto"><img src="./imagenes/foto3.jfif"></div>
+<div class="foto"><img src="./imagenes/foto3.jfif"></div>
+<div class="foto"><img src="./imagenes/foto3.jfif"></div>
+<div class="foto"><img src="./imagenes/foto3.jfif"></div>
+<div class="foto"><img src="./imagenes/foto3.jfif"></div>
+<div class="foto"><img src="./imagenes/foto3.jfif"></div>
+<div class="foto"><img src="./imagenes/foto3.jfif"></div>
+<div class="foto"><img src="./imagenes/foto3.jfif"></div> -->
+
+</div>
+
+<button onclick="mostrarMensaje()">Haz clic aquí 💌</button>
+<div id="sorpresa">
+
+<img src="./imagenes/foto4.jfif">
+
+<h2>
+Gracias por ser la mujer que llena mi vida de amor,
+alegría y felicidad.  
+Cada día a tu lado es un regalo maravilloso.  
+Te amo infinitamente ❤️
+</h2>
+
+</div>
+
+<div id="mensaje">
+Gracias por ser la mujer maravillosa que ilumina mi vida cada día.  
+Eres mi alegría, mi amor y mi inspiración.  
+Te amo con todo mi corazón ❤️  
+Feliz Día de la Mujer.
+</div>
+
+<script>
+
+function mostrarMensaje(){
+document.getElementById("mensaje").style.display="block";
+}
+
+/* CORAZONES */
+
+function crearCorazon(){
+
+let c=document.createElement("div");
+c.className="corazon";
+c.innerHTML="❤️";
+
+c.style.left=Math.random()*100+"vw";
+c.style.fontSize=(Math.random()*25+15)+"px";
+
+document.body.appendChild(c);
+
+setTimeout(()=>{
+c.remove();
+},8000)
+
+}
+
+setInterval(crearCorazon,400);
+
+/* ROSAS */
+
+function mostrarMensaje(){
+
+let sorpresa=document.getElementById("sorpresa");
+
+sorpresa.style.display="flex";
+
+/* desaparecer después de 15 segundos */
+
+setTimeout(()=>{
+sorpresa.style.display="none";
+},5000);
+
+}
+
+</script>
+
+</body>
+</html>
