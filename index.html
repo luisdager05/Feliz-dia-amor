@@ -488,12 +488,24 @@ sorpresa.style.display="none";
 },5000);
 
 }
+let musica = document.getElementById("musica");
+let boton = document.getElementById("btnAudio");
 
+boton.addEventListener("click", function(){
+    if(musica.paused){
+        musica.play();
+        boton.innerHTML="💖";
+    }else{
+        musica.pause();
+        boton.innerHTML="❤️";
+    }
+});
 </script>
 
 </body>
 
 </html>
+
 
 
 
